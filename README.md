@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # EventOrganizer — Frontend Application
 
 A modern, standalone event management website built with **React**, **Vite**, and **Tailwind CSS**. Runs entirely in the browser with no backend required.
@@ -46,3 +47,6 @@ frontend/
 │   └── utils/           # PDF tickets, date locales
 └── package.json
 ```
+=======
+# Event_Management
+>>>>>>> a6bf12ad02178d89e0c1a9b3357f20d26a97fac5

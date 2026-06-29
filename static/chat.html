@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventHub | Chat Support</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script>
+      tailwind = { config: { theme: { extend: { colors: { brand: '#7c3aed', accent: '#f59e0b' } } } } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 1000;">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">EventHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenuChat">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenuChat">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="chat.html">Support</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="dashboard/index.html">Dashboard</a></li>
+            <li class="nav-item"><a class="btn btn-primary rounded-pill px-4" href="login.html" style="background: #7c3aed; border: none;">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-12">
+      <section class="container py-6">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card animate-scale-in">
+              <div class="card-header bg-primary text-white d-flex align-items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h5 class="mb-0">Support Chat</h5>
+                  <small class="text-white/70">Online • Typically replies in 5 minutes</small>
+                </div>
+              </div>
+              <div class="card-body p-4">
+                <div id="chatMessages" class="mb-4" style="max-height: 400px; overflow-y: auto;">
+                  <div class="d-flex gap-3 mb-4 animate-fade-in-up">
+                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white flex-shrink-0">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                      </svg>
+                    </div>
+                    <div class="bg-light p-3 rounded-3 rounded-tl-none">
+                      <p class="mb-0">Hello! Welcome to EventHub support. How can I help you today?</p>
+                      <small class="text-muted">Support Agent • Just now</small>
+                    </div>
+                  </div>
+                </div>
+                <div class="input-group">
+                  <input type="text" id="chatInput" class="form-control" placeholder="Type your message..." />
+                  <button id="sendButton" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card mt-4 reveal stagger-1">
+              <div class="card-body p-4">
+                <h5 class="fw-semibold mb-3">Quick Help</h5>
+                <div class="d-grid gap-2">
+                  <button class="btn btn-outline-primary text-start quick-reply">How do I book an event?</button>
+                  <button class="btn btn-outline-primary text-start quick-reply">What is your refund policy?</button>
+                  <button class="btn btn-outline-primary text-start quick-reply">How do I contact event organizers?</button>
+                  <button class="btn btn-outline-primary text-start quick-reply">Where can I find my tickets?</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-5 bg-slate-900 text-white text-center">
+      <div class="container">© 2026 EventHub. Built with HTML, CSS, and JavaScript.</div>
+    </footer>
+
+    <script>
+      document.getElementById('sendButton').addEventListener('click', sendMessage);
+      document.getElementById('chatInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+      });
+
+      document.querySelectorAll('.quick-reply').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.getElementById('chatInput').value = btn.textContent;
+          sendMessage();
+        });
+      });
+
+      function sendMessage() {
+        const input = document.getElementById('chatInput');
+        const message = input.value.trim();
+        if (!message) return;
+
+        const chatMessages = document.getElementById('chatMessages');
+        
+        // Add user message
+        chatMessages.innerHTML += `
+          <div class="d-flex gap-3 mb-4 justify-content-end animate-fade-in-up">
+            <div class="bg-primary text-white p-3 rounded-3 rounded-tr-none">
+              <p class="mb-0">${message}</p>
+              <small class="text-white/70">You • Just now</small>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-brand-gradient flex items-center justify-center text-white flex-shrink-0">U</div>
+          </div>
+        `;
+
+        input.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Simulate support response
+        setTimeout(() => {
+          const responses = [
+            "Thank you for your message! Our team will get back to you shortly.",
+            "I understand your concern. Let me help you with that.",
+            "Great question! Here's what you need to know...",
+            "I'm checking that for you right now. Please hold on a moment."
+          ];
+          const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+
+          chatMessages.innerHTML += `
+            <div class="d-flex gap-3 mb-4 animate-fade-in-up">
+              <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white flex-shrink-0">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
+                </svg>
+              </div>
+              <div class="bg-light p-3 rounded-3 rounded-tl-none">
+                <p class="mb-0">${randomResponse}</p>
+                <small class="text-muted">Support Agent • Just now</small>
+              </div>
+            </div>
+          `;
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1000);
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

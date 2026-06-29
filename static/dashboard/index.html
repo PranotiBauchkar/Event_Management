@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventHub | User Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script>
+      tailwind = { config: { theme: { extend: { colors: { brand: '#7c3aed', accent: '#f59e0b' } } } } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 1000;">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../index.html">EventHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenuDashboard">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenuDashboard">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="../events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="../calendar.html">Calendar</a></li>
+            <li class="nav-item"><a class="nav-link" href="../chat.html">Support</a></li>
+            <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Dashboard</a></li>
+            <li class="nav-item"><a class="btn btn-primary rounded-pill px-4" href="../login.html" style="background: #7c3aed; border: none;">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-12">
+      <section class="container py-6">
+        <div class="mb-5 animate-fade-in-up">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <div class="w-16 h-16 rounded-full bg-brand-gradient flex items-center justify-center text-white text-2xl fw-bold">JD</div>
+            <div>
+              <h1 class="h3 fw-bold mb-0">Welcome back, John Doe</h1>
+              <p class="text-muted mb-0">Event Enthusiast</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4 mb-5">
+          <div class="col-md-3 reveal stagger-1">
+            <div class="stat-card p-4 rounded-4">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 5v2"/><path d="M15 11v2"/><path d="M15 17v2"/><path d="M5 5h14a2 2 0 0 1 2 2v3a2 2 0 0 0 0 4v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a2 2 0 0 0 0-4V7a2 2 0 0 1 2-2z"/>
+                  </svg>
+                </div>
+                <span class="text-muted">Bookings</span>
+              </div>
+              <h3 class="display-6 fw-bold mb-0">12</h3>
+            </div>
+          </div>
+          <div class="col-md-3 reveal stagger-2">
+            <div class="stat-card p-4 rounded-4">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <span class="text-muted">Saved</span>
+              </div>
+              <h3 class="display-6 fw-bold mb-0">8</h3>
+            </div>
+          </div>
+          <div class="col-md-3 reveal stagger-3">
+            <div class="stat-card p-4 rounded-4">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-xl bg-success/10 flex items-center justify-center text-success">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                  </svg>
+                </div>
+                <span class="text-muted">Spent</span>
+              </div>
+              <h3 class="display-6 fw-bold mb-0">₹24K</h3>
+            </div>
+          </div>
+          <div class="col-md-3 reveal stagger-4">
+            <div class="stat-card p-4 rounded-4">
+              <div class="d-flex align-items-center gap-3 mb-2">
+                <div class="w-10 h-10 rounded-xl bg-danger/10 flex items-center justify-center text-danger">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                  </svg>
+                </div>
+                <span class="text-muted">Upcoming</span>
+              </div>
+              <h3 class="display-6 fw-bold mb-0">3</h3>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-8 reveal-left">
+            <div class="card p-4 mb-4">
+              <h2 class="h5 fw-semibold mb-4">Recent Bookings</h2>
+              <div class="table-responsive">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>Event</th>
+                      <th>Date</th>
+                      <th>Seats</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="bookingsTableBody">
+                    <!-- Bookings will be loaded dynamically -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 reveal-right">
+            <div class="card p-4 mb-4">
+              <h2 class="h5 fw-semibold mb-4">Quick Actions</h2>
+              <div class="d-grid gap-2">
+                <a href="../events.html" class="btn btn-outline-primary">Browse Events</a>
+                <a href="../calendar.html" class="btn btn-outline-primary">View Calendar</a>
+                <a href="../contact.html" class="btn btn-outline-primary">Get Support</a>
+              </div>
+            </div>
+            <div class="card p-4">
+              <h2 class="h5 fw-semibold mb-4">Notifications</h2>
+              <div class="space-y-3">
+                <div class="d-flex gap-3 align-items-start">
+                  <div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="mb-0 fw-semibold">Booking Confirmed</p>
+                    <small class="text-muted">Mumbai Music Festival tickets are ready</small>
+                  </div>
+                </div>
+                <div class="d-flex gap-3 align-items-start">
+                  <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent flex-shrink-0">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="mb-0 fw-semibold">Event Reminder</p>
+                    <small class="text-muted">Tech Summit starts in 2 days</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-5 bg-slate-900 text-white text-center">
+      <div class="container">© 2026 EventHub. Built with HTML, CSS, and JavaScript.</div>
+    </footer>
+
+    <script src="../data.js"></script>
+    <script src="../static.js"></script>
+    <script>
+      console.log('User Dashboard loading...');
+      
+      // Check login status
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const userRole = localStorage.getItem('userRole');
+      const userEmail = localStorage.getItem('userEmail');
+      
+      console.log('Login status:', { isLoggedIn, userRole, userEmail });
+      
+      if (!isLoggedIn || userRole !== 'user') {
+        console.log('Not logged in as user, redirecting to login');
+        window.location.href = '../login.html';
+      }
+      
+      // Load bookings from localStorage
+      const loadBookings = () => {
+        const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+        const tbody = document.getElementById('bookingsTableBody');
+        
+        console.log('Loading bookings:', bookings);
+        
+        if (bookings.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted">No bookings yet. <a href="../events.html">Browse events</a></td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = bookings.map(booking => {
+          const date = new Date(booking.date);
+          const formattedDate = date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+          return `
+            <tr>
+              <td>${booking.eventName}</td>
+              <td>${formattedDate}</td>
+              <td>${booking.seats}</td>
+              <td>₹${booking.price.toLocaleString()}</td>
+              <td><span class="badge bg-success">${booking.status}</span></td>
+              <td>
+                <a href="../ticket.html?eventId=${booking.eventId}&seats=${encodeURIComponent(booking.seats)}&totalPrice=${booking.price}" class="btn btn-sm btn-outline-primary">View Ticket</a>
+              </td>
+            </tr>
+          `;
+        }).join('');
+      };
+
+      // Update stats based on bookings
+      const updateStats = () => {
+        const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+        const totalBookings = bookings.length;
+        const totalSpent = bookings.reduce((sum, b) => sum + b.price, 0);
+        const upcoming = bookings.filter(b => new Date(b.date) > new Date()).length;
+
+        document.querySelector('.stat-card:nth-child(1) .display-6').textContent = totalBookings || 12;
+        document.querySelector('.stat-card:nth-child(3) .display-6').textContent = totalSpent > 0 ? `₹${(totalSpent / 1000).toFixed(1)}K` : '₹24K';
+        document.querySelector('.stat-card:nth-child(4) .display-6').textContent = upcoming || 3;
+      };
+
+      window.addEventListener('DOMContentLoaded', () => {
+        console.log('User Dashboard DOM loaded');
+        loadBookings();
+        updateStats();
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventHub | Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script>
+      tailwind = { config: { theme: { extend: { colors: { brand: '#7c3aed', accent: '#f59e0b' } } } } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 1000;">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">EventHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenuEvents">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenuEvents">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+            <li class="nav-item"><a class="nav-link" href="chat.html">Support</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="dashboard/index.html">Dashboard</a></li>
+            <li class="nav-item"><a class="btn btn-primary rounded-pill px-4" href="login.html" style="background: #7c3aed; border: none;">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-12">
+      <section class="bg-[url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center text-white py-20 position-relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
+        <div class="container position-relative">
+          <div class="max-w-3xl animate-fade-in-up">
+            <span class="badge rounded-pill bg-primary px-3 py-2 mb-4">Discover Events</span>
+            <h1 class="display-5 fw-bold">Book exciting events, concerts, and conferences near you</h1>
+            <p class="lead text-white/80 mt-4">Search by category, city, and price to find the perfect event for your next outing.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="container py-6">
+        <div class="d-flex flex-column flex-md-row gap-3 mb-5 animate-fade-in-up">
+          <div class="flex-1 position-relative">
+            <span class="position-absolute top-50 start-0 translate-middle-y ps-3 text-muted">🔍</span>
+            <input id="searchInput" type="search" class="form-control ps-5 py-3" placeholder="Search events" />
+          </div>
+          <button id="filterToggle" class="btn btn-outline-primary px-4">Filters</button>
+        </div>
+
+        <div id="filterPanel" class="card mb-5 d-none animate-scale-in">
+          <div class="card-body row g-3">
+            <div class="col-sm-6 col-lg-3">
+              <select id="categoryFilter" class="form-select">
+                <option value="">All Categories</option>
+              </select>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <input id="cityFilter" type="text" class="form-control" placeholder="City" />
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <input id="minPriceFilter" type="number" class="form-control" placeholder="Min price" />
+            </div>
+            <div class="col-sm-6 col-lg-3">
+              <input id="maxPriceFilter" type="number" class="form-control" placeholder="Max price" />
+            </div>
+          </div>
+        </div>
+
+        <div id="eventsGrid" class="row g-4"></div>
+      </section>
+    </main>
+
+    <footer class="py-5 bg-slate-900 text-white">
+      <div class="container text-center">
+        <p class="mb-0">© 2026 EventHub. Built with HTML, CSS, and JavaScript.</p>
+      </div>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="static.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventHub | Your Ticket</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script>
+      tailwind = { config: { theme: { extend: { colors: { brand: '#7c3aed', accent: '#f59e0b' } } } } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-slate-100 text-slate-900">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(15, 23, 42, 0.95); backdrop-filter: blur(10px); z-index: 1000;">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">EventHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenuTicket">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenuTicket">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="events.html">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="calendar.html">Calendar</a></li>
+            <li class="nav-item"><a class="nav-link" href="chat.html">Support</a></li>
+            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="dashboard/index.html">Dashboard</a></li>
+            <li class="nav-item"><a class="btn btn-primary rounded-pill px-4" href="login.html" style="background: #7c3aed; border: none;">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-24 pb-12">
+      <section class="container py-6">
+        <div class="row justify-content-center">
+          <div class="col-lg-6">
+            <div class="text-center mb-5 animate-fade-in-up">
+              <div class="w-20 h-20 rounded-full bg-success/10 flex items-center justify-center mx-auto mb-3 animate-scale-in">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-success">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+              </div>
+              <h1 class="h3 fw-bold mb-2">Booking Confirmed!</h1>
+              <p class="text-muted">Your ticket has been generated successfully</p>
+            </div>
+
+            <div class="card animate-scale-in" id="ticketCard">
+              <div class="card-body p-0">
+                <div class="bg-brand-gradient text-white p-4">
+                  <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                      <h2 class="h4 fw-bold mb-1" id="ticketEventName">Mumbai Music Festival 2026</h2>
+                      <p class="text-white/80 mb-0" id="ticketVenue">MMRDA Grounds, Mumbai</p>
+                    </div>
+                    <div class="text-end">
+                      <div class="bg-white/20 rounded px-3 py-1">
+                        <small class="fw-bold">TICKET</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="p-4">
+                  <div class="row g-3 mb-4">
+                    <div class="col-6">
+                      <small class="text-muted d-block mb-1">Date</small>
+                      <div class="fw-semibold" id="ticketDate">30 July 2026</div>
+                    </div>
+                    <div class="col-6">
+                      <small class="text-muted d-block mb-1">Time</small>
+                      <div class="fw-semibold" id="ticketTime">5:00 PM</div>
+                    </div>
+                    <div class="col-6">
+                      <small class="text-muted d-block mb-1">Seat</small>
+                      <div class="fw-semibold" id="ticketSeat">Row 2, Seat 5</div>
+                    </div>
+                    <div class="col-6">
+                      <small class="text-muted d-block mb-1">Price</small>
+                      <div class="fw-semibold" id="ticketPrice">₹1,500</div>
+                    </div>
+                  </div>
+
+                  <div class="bg-slate-50 rounded-3 p-3 mb-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div>
+                        <small class="text-muted d-block mb-1">Booking ID</small>
+                        <div class="fw-bold font-monospace" id="ticketBookingId">EVT-2026-78542</div>
+                      </div>
+                      <div class="text-end">
+                        <small class="text-muted d-block mb-1">Status</small>
+                        <span class="badge bg-success">Confirmed</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex justify-content-center mb-4">
+                    <div id="ticketQRCode" class="w-32 h-32 bg-white p-2 rounded-lg shadow-sm">
+                      <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <rect fill="white" width="100" height="100"/>
+                        <g fill="black">
+                          <rect x="10" y="10" width="20" height="20"/>
+                          <rect x="70" y="10" width="20" height="20"/>
+                          <rect x="10" y="70" width="20" height="20"/>
+                          <rect x="40" y="40" width="20" height="20"/>
+                          <rect x="35" y="10" width="5" height="5"/>
+                          <rect x="45" y="10" width="5" height="5"/>
+                          <rect x="35" y="20" width="5" height="5"/>
+                          <rect x="45" y="20" width="5" height="5"/>
+                          <rect x="10" y="35" width="5" height="5"/>
+                          <rect x="20" y="35" width="5" height="5"/>
+                          <rect x="10" y="45" width="5" height="5"/>
+                          <rect x="20" y="45" width="5" height="5"/>
+                          <rect x="70" y="35" width="5" height="5"/>
+                          <rect x="80" y="35" width="5" height="5"/>
+                          <rect x="70" y="45" width="5" height="5"/>
+                          <rect x="80" y="45" width="5" height="5"/>
+                          <rect x="35" y="70" width="5" height="5"/>
+                          <rect x="45" y="70" width="5" height="5"/>
+                          <rect x="35" y="80" width="5" height="5"/>
+                          <rect x="45" y="80" width="5" height="5"/>
+                          <rect x="70" y="70" width="5" height="5"/>
+                          <rect x="80" y="70" width="5" height="5"/>
+                          <rect x="70" y="80" width="5" height="5"/>
+                          <rect x="80" y="80" width="5" height="5"/>
+                        </g>
+                      </svg>
+                    </div>
+                  </div>
+
+                  <div class="d-grid gap-2">
+                    <button onclick="window.print()" class="btn btn-primary">
+                      <svg class="w-4 h-4 inline mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
+                      </svg>
+                      Print Ticket
+                    </button>
+                    <button onclick="downloadTicket()" class="btn btn-outline-primary">
+                      <svg class="w-4 h-4 inline mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                      </svg>
+                      Download PDF
+                    </button>
+                    <a href="dashboard/index.html" class="btn btn-outline-secondary">
+                      <svg class="w-4 h-4 inline mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                      </svg>
+                      Go to Dashboard
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="text-center mt-4 text-muted small">
+              <p class="mb-1">Please show this ticket at the venue entrance</p>
+              <p class="mb-0">For support, contact us at support@eventhub.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-5 bg-slate-900 text-white text-center">
+      <div class="container">© 2026 EventHub. Built with HTML, CSS, and JavaScript.</div>
+    </footer>
+
+    <script>
+      // Get booking details from URL parameters
+      const params = new URLSearchParams(window.location.search);
+      const eventId = params.get('eventId') || 'evt_1';
+      const seats = params.get('seats') || 'Row 2, Seat 5';
+      const totalPrice = params.get('totalPrice') || '1500';
+
+      // Generate random booking ID
+      const bookingId = 'EVT-2026-' + Math.floor(10000 + Math.random() * 90000);
+
+      // Update ticket details
+      document.getElementById('ticketBookingId').textContent = bookingId;
+      document.getElementById('ticketSeat').textContent = seats;
+      document.getElementById('ticketPrice').textContent = '₹' + parseInt(totalPrice).toLocaleString();
+
+      // Load event details
+      const event = window.siteData?.events?.find(e => e.id === eventId);
+      if (event) {
+        document.getElementById('ticketEventName').textContent = event.title;
+        document.getElementById('ticketVenue').textContent = `${event.venue.name}, ${event.venue.city}`;
+        
+        const date = new Date(event.date);
+        document.getElementById('ticketDate').textContent = date.toLocaleDateString('en-IN', { 
+          day: 'numeric', 
+          month: 'short', 
+          year: 'numeric' 
+        });
+        document.getElementById('ticketTime').textContent = date.toLocaleTimeString('en-IN', { 
+          hour: '2-digit', 
+          minute: '2-digit' 
+        });
+      }
+
+      function downloadTicket() {
+        alert('Ticket PDF download initiated! In a real application, this would generate a PDF file.');
+      }
+
+      // Store booking in localStorage for dashboard
+      const bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+      bookings.push({
+        bookingId: bookingId,
+        eventId: eventId,
+        eventName: event?.title || 'Event',
+        venue: event?.venue?.name || 'Venue',
+        date: event?.date || new Date().toISOString(),
+        seats: seats,
+        price: parseInt(totalPrice),
+        status: 'Confirmed',
+        bookedAt: new Date().toISOString()
+      });
+      localStorage.setItem('bookings', JSON.stringify(bookings));
+    </script>
+    <script src="data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
